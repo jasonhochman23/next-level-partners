@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Script from "next/script";
 import FAQ from "@/components/FAQ";
-import type { Metadata } from "next";
 
 const whatToExpect = [
   "We'll discuss your current challenges and goals",
@@ -36,11 +36,6 @@ const faqItems = [
     question: "What if it's not a fit?",
     answer:
       "I'll tell you on the discovery call. I only take on engagements where I'm confident I can deliver 3-5x ROI. If I can't help, I'll point you to someone who can.",
-  },
-  {
-    question: "Do you work with my industry?",
-    answer:
-      "I've worked with SaaS, e-commerce, professional services, and more. The principles of revenue operations and scaling are universal-industry expertise is a bonus, not a requirement.",
   },
 ];
 
@@ -88,28 +83,18 @@ export default function ContactPage() {
               <div className="card">
                 <h2 className="heading-3 mb-6">Schedule a Discovery Call</h2>
 
-                {/* Calendly Placeholder */}
-                <div className="bg-neutral-light rounded-xl p-8 mb-6 text-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h3 className="font-heading font-semibold text-primary mb-2">Calendly Widget</h3>
-                  <p className="text-neutral-gray text-sm mb-4">
-                    Your Calendly booking widget will appear here.
-                  </p>
-                  <a
-                    href="https://calendly.com/nextlevelpartners/discovery"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary inline-block"
-                  >
-                    Open Calendly
-                  </a>
-                  <p className="text-xs text-neutral-gray mt-4">
-                    Add your Calendly embed code to replace this placeholder
-                  </p>
+                {/* Calendly Embed */}
+                <div className="mb-6">
+                  <div
+                    className="calendly-inline-widget"
+                    data-url="https://calendly.com/jason-hochman23/30min?hide_gdpr_banner=1"
+                    data-resize="true"
+                    style={{ minWidth: "320px", height: "700px" }}
+                  ></div>
+                  <Script
+                    src="https://assets.calendly.com/assets/external/widget.js"
+                    strategy="lazyOnload"
+                  />
                 </div>
 
                 <div className="border-t border-gray-200 pt-6">
