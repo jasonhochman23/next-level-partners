@@ -1,11 +1,5 @@
 import Link from "next/link";
-
-// Trust signals data
-const trustSignals = [
-  "17 Years as an Operator",
-  "$3B+ in Valuations Built",
-  "$100M+ Revenue Generated",
-];
+import Image from "next/image";
 
 // Problem cards data
 const problems = [
@@ -119,17 +113,6 @@ export default function HomePage() {
                 </Link>
               </div>
 
-              {/* Trust Signals */}
-              <div className="flex flex-wrap gap-4">
-                {trustSignals.map((signal, index) => (
-                  <span
-                    key={index}
-                    className="text-sm text-neutral-gray bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm"
-                  >
-                    {signal}
-                  </span>
-                ))}
-              </div>
             </div>
 
             {/* Hero Visual */}
@@ -159,8 +142,73 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Problem Section */}
+      {/* Journey Teaser Section */}
       <section className="section-padding bg-white">
+        <div className="container-custom">
+          <div className="max-w-3xl mx-auto text-center mb-10">
+            <h2 className="heading-2 mb-4">I've Been Where You Are</h2>
+            <p className="text-lg text-neutral-gray">
+              I've spent 17 years inside high-growth companies - not advising from the outside, but building from the ground up. From first sales hire to C-suite, I've scaled teams, revenue, and operations through every stage.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="card text-center">
+              <Image
+                src="/images/logos/zocdoc.png"
+                alt="Zocdoc logo"
+                width={48}
+                height={48}
+                className="mx-auto mb-4 rounded-lg"
+              />
+              <h3 className="font-heading font-bold text-primary mb-1">Zocdoc</h3>
+              <p className="text-sm text-secondary font-semibold mb-2">Series A to Series D</p>
+              <p className="text-sm text-neutral-gray">
+                Founding sales team to Sales Director. Scaled to 150+ reps and helped drive growth to a $2B valuation.
+              </p>
+            </div>
+
+            <div className="card text-center">
+              <Image
+                src="/images/logos/capsule.png"
+                alt="Capsule Pharmacy logo"
+                width={48}
+                height={48}
+                className="mx-auto mb-4 rounded-lg"
+              />
+              <h3 className="font-heading font-bold text-primary mb-1">Capsule Pharmacy</h3>
+              <p className="text-sm text-secondary font-semibold mb-2">Series A to Series C</p>
+              <p className="text-sm text-neutral-gray">
+                First VP of Sales. Built the team from 0 to 30 reps and developed the GTM strategy that drove growth to a $1B valuation.
+              </p>
+            </div>
+
+            <div className="card text-center">
+              <Image
+                src="/images/logos/aluna.png"
+                alt="Aluna logo"
+                width={48}
+                height={48}
+                className="mx-auto mb-4 rounded-lg"
+              />
+              <h3 className="font-heading font-bold text-primary mb-1">Aluna</h3>
+              <p className="text-sm text-secondary font-semibold mb-2">Series A to Series B</p>
+              <p className="text-sm text-neutral-gray">
+                CCO to COO. Joined a 4-person team, built all GTM and operations, and drove the company to a successful acquisition.
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Link href="/about" className="btn-secondary inline-block">
+              Read My Full Story
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section className="section-padding bg-neutral-light">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-2 mb-4">
@@ -185,7 +233,7 @@ export default function HomePage() {
       </section>
 
       {/* How It Works Section */}
-      <section className="section-padding bg-neutral-light">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="heading-2 mb-4">How Next Level Partners Works</h2>
@@ -225,56 +273,57 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Two Ways to Work Together */}
+      {/* Work With Me */}
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="heading-2 mb-4">Two Ways to Work Together</h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Direct Engagement */}
-            <div className="card border-2 border-primary">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">👤</span>
-                <div>
-                  <h3 className="heading-3">Direct Engagement</h3>
-                  <p className="text-neutral-gray">Work with Jason directly</p>
-                </div>
-              </div>
-              <p className="text-neutral-gray mb-6">
-                Fractional COO, CRO, or VP Sales leadership embedded in your team
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="heading-2 mb-4">What You Get When You Work With Me</h2>
+              <p className="text-lg text-neutral-gray mb-8">
+                I become an embedded member of your leadership team - joining your meetings,
+                owning initiatives, and driving execution. Not advice from the sidelines,
+                but hands-on leadership that delivers results.
               </p>
-              <div className="bg-neutral-light rounded-lg p-4 mb-6">
-                <p className="text-sm text-neutral-gray">
-                  Ideal for companies with $2-20M ARR ready to scale operations and revenue
-                </p>
-              </div>
-              <Link href="/services" className="btn-primary w-full text-center block">
-                Learn More
+              <ul className="space-y-4 mb-8">
+                {[
+                  "Fractional COO, CRO, or VP Sales leadership embedded in your team",
+                  "Hands-on execution and implementation from day one",
+                  "Process design, KPI development, and team coaching",
+                  "Recruiting and talent acquisition to build your team with proven winners",
+                  "Access to my curated network of specialized fractional experts - CFOs, CMOs, CTOs, and more",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-neutral-gray">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/services" className="btn-primary inline-block">
+                See How It Works
               </Link>
             </div>
 
-            {/* Curated Network */}
-            <div className="card border-2 border-secondary">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">🤝</span>
-                <div>
-                  <h3 className="heading-3">Curated Network</h3>
-                  <p className="text-neutral-gray">Matched with vetted operators</p>
-                </div>
-              </div>
-              <p className="text-neutral-gray mb-6">
-                Specialists from my trusted network matched to your specific needs
-              </p>
-              <div className="bg-neutral-light rounded-lg p-4 mb-6">
-                <p className="text-sm text-neutral-gray">
-                  Ideal for specialized expertise or building out multiple functions
+            <div className="space-y-6">
+              <div className="card border-l-4 border-l-primary">
+                <h3 className="font-heading font-bold text-primary mb-2">Embedded Leadership</h3>
+                <p className="text-neutral-gray">
+                  I'm not a consultant who drops in once a month. I'm in your Slack, on your calls, and driving your team forward.
                 </p>
               </div>
-              <Link href="/services" className="btn-secondary w-full text-center block">
-                View Network
-              </Link>
+              <div className="card border-l-4 border-l-secondary">
+                <h3 className="font-heading font-bold text-secondary mb-2">Network Access</h3>
+                <p className="text-neutral-gray">
+                  Need a fractional CFO, CMO, or CTO? I'll match you with personally vetted operators from my trusted network and ensure quality results.
+                </p>
+              </div>
+              <div className="card border-l-4 border-l-accent">
+                <h3 className="font-heading font-bold text-accent mb-2">Built to Scale</h3>
+                <p className="text-neutral-gray">
+                  Everything I build is designed to outlast me - processes, playbooks, and trained teams that keep winning.
+                </p>
+              </div>
             </div>
           </div>
         </div>

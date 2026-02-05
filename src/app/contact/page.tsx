@@ -93,7 +93,7 @@ export default function ContactPage() {
                   ></div>
                   <Script
                     src="https://assets.calendly.com/assets/external/widget.js"
-                    strategy="lazyOnload"
+                    strategy="afterInteractive"
                   />
                 </div>
 
